@@ -11,25 +11,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadSomeData: () => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 			},
-		*/ getPeople0: async () => {
+		 getPeople0: async () => {
 				let peopleStored = [];
 				let response = await fetch("https://www.swapi.tech/api/people/", { method: "GET" });
 				let responseAsJson = await response.json();
 				console.log(typeof responseAsJson);
 				setStore({ people: responseAsJson });
 			},
-			getPeople: async () => {
+         */
+			// KURWA NO FUNCIONA . СУКА БЛЯТЬ!!!!!
+
+			/*	getPeople: async () => {
 				try {
 					let response = await fetch("https://www.swapi.tech/api/people/");
 					if (response.ok) {
 						let responseAsJson = await response.json();
-						console.log(responseAsJson);
+						//console.log(responseAsJson);
 						setStore({ people: responseAsJson });
 					}
 					throw new Error(response.statusText, " code: ", response.status);
 				} catch (error) {
 					console.log(error);
 				}
+            }
+        */
+
+			getPeople: () => {
+				fetch("https://www.swapi.tech/api/people/", { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						setStore({ people: responseAsJson });
+					});
 			}
 		}
 	};

@@ -6,19 +6,26 @@ import "../../styles/home.scss";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	let peopleList = store.people;
-	const [cardsMap, setCardsMap] = useState([]);
+	const [peopleCards, setPeopleCards] = useState([]);
 
+	console.log(store.people.results);
 	useEffect(
 		() => {
-			console.log(typeof peopleList.results, "2");
+			if (store.people.results != undefined) {
+				setPeopleCards(
+					store.people.results.map((elem, index) => {
+						return <MediaCard key={index.toString()} title={elem.name} />;
+					})
+				);
+			}
 		},
-		[peopleList]
+		[store.people]
 	);
+	console.log("People Cards:", peopleCards);
 
 	/*setCardsMap(
 		store.people[0].results.map((elem, index) => {
-			return <Card key={elem.uid} />;
+			return <MediaCard key={index.toString()} title={elem.results[index].name} />;
 		})
 	);*/
 	// key={elem.uid} title={elem.name} button={elem.url}
@@ -30,7 +37,7 @@ export const Home = () => {
 			<a href="#" className="btn btn-danger">
 				If you see this red button, bootstrap is working
 			</a>
-			<MediaCard title="Lizard" />
+			<div className="container d-flex">{peopleCards}</div>
 		</div>
 	);
 };
