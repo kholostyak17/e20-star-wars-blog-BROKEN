@@ -12,7 +12,7 @@ export const Home = () => {
 		setPlanetsToMap(
 			store.planets.map((planet, index) => {
 				console.log("planets", planet);
-				return <CardSW key={index.toString()}>{planet.name}</CardSW>;
+				return <CardSW key={index.toString()} name={planet.name} />;
 			})
 		);
 	});
