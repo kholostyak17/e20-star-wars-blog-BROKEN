@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
+import { PeopleDetails } from "./views/people-details";
 import { Demo } from "./views/0demo";
 import { Single } from "./views/0single";
 import injectContext from "./store/appContext";
@@ -24,6 +25,9 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route exact path="/people">
+							<PeopleDetails />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

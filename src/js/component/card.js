@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Card = props => {
 	return (
-		<div className="TARJETA card text-center text-warning bg-dark border-warning m-3">
+		<div className="size card text-center text-warning bg-dark border-warning m-3">
 			<img
 				className="card-img-top"
 				src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
@@ -15,9 +16,11 @@ const Card = props => {
 					Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
 					continents except Antarctica
 				</p>
-				<a href="#" className="btn btn-warning font-weight-bold text-dark">
-					Learn More
-				</a>
+				<Link to="/people">
+					<a href="#" className="btn btn-warning font-weight-bold text-dark">
+						Learn More
+					</a>
+				</Link>
 			</div>
 		</div>
 	);
