@@ -31,13 +31,13 @@ export const Home = () => {
 	// key={elem.uid} title={elem.name} button={elem.url}
 
 	return (
-		<div className="text-center mt-5">
+		<div className="text-center mt-1">
 			<h1>Hello Rigo!</h1>
 			<p />
-			<a href="#" className="btn btn-danger">
+			<a href="#" className="btn btn-danger mb-1">
 				If you see this red button, bootstrap is working
 			</a>
-			<div className="container d-flex">{peopleCards}</div>
+			<div className="container d-flex flex-wrap">{peopleCards}</div>
 		</div>
 	);
 };
