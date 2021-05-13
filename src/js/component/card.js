@@ -1,56 +1,31 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 
-const useStyles = makeStyles({
-	root: {
-		maxWidth: 345
-	},
-	media: {
-		height: 140
-	}
-});
-
-export default function MediaCard(props) {
-	const classes = useStyles();
-
+const Card = props => {
 	return (
-		<Card className={classes.root}>
-			<CardActionArea>
-				<CardMedia
-					className={classes.media}
-					image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-					title="Contemplative Reptile"
-				/>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						{props.title}
-					</Typography>
-					<Typography variant="body2" color="textSecondary" component="p">
-						Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-						continents except Antarctica
-					</Typography>
-				</CardContent>
-			</CardActionArea>
-			<CardActions>
-				<Button size="small" color="primary">
-					Share
-				</Button>
-				<Button size="small" color="primary">
+		<div className="TARJETA card text-center text-warning bg-dark border-warning m-3">
+			<img
+				className="card-img-top"
+				src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+				alt="Card image cap"
+			/>
+			<div className="card-body">
+				<h5 className="card-title">{props.title}</h5>
+				<p className="card-text">
+					Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
+					continents except Antarctica
+				</p>
+				<a href="#" className="btn btn-warning font-weight-bold text-dark">
 					Learn More
-				</Button>
-			</CardActions>
-		</Card>
+				</a>
+			</div>
+		</div>
 	);
-}
+};
 
-MediaCard.propTypes = {
-	title: PropTypes.string
+export default Card;
+
+Card.propTypes = {
+	title: PropTypes.string,
+	url: PropTypes.string
 };
