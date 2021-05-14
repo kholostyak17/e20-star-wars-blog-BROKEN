@@ -11,7 +11,7 @@ export const Home = () => {
 	useEffect(() => {
 		setPlanetsToMap(
 			store.planets.map((planet, index) => {
-				console.log("planets", planet);
+				// console.log("planets", planet);
 				return <CardSW key={index.toString()} name={planet.name} />;
 			})
 		);

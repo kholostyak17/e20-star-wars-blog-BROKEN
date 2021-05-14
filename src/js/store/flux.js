@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			favourite: [],
 			planets: [],
 			urlRoot: "https://www.swapi.tech/api/"
 		},
@@ -17,6 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(responseAsJson);
 						setStore({ planets: responseAsJson.results });
 					});
+			},
+			favoriteP: favoriteP => {
+				if (!getStore().favourite.includes(favoriteP)) {
+					setStore({ favourite: [...getStore().favourite, favoriteP] });
+					console.log(getStore().favourite);
+				}
 			}
 		}
 	};
