@@ -1,23 +1,39 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: {
-				species: {}
-			}
+			species: [],
+			detailSpecies: {}
 		},
 		actions: {
 			getSpecies: async () => {
-				let speciesStored = [];
-				let response = await fetch("https://www.swapi.tech/api/species/");
-				let responseAsJson = await response.json();
-				console.log(responseAsJson);
+				try {
+					let response = await fetch("https://www.swapi.tech/api/species/");
 
-				responseAsJson.results.map(element => {
-					speciesStored.push(element);
-				});
+					if (response.ok) {
+						let responseAsJson = await response.json();
+						setStore({ species: responseAsJson });
+					} else {
+						throw new Error(response.statusText, "code:", response.status);
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+			getDetails: async url => {
+				console.log("estoy en flux");
+				try {
+					let response = await fetch(url);
 
-				setStore({ species: speciesStored });
-				// console.log("Soy el log de Home");
+					if (response.ok) {
+						let responseAsJson = await response.json();
+						console.log(responseAsJson);
+						setStore({ detailSpecies: responseAsJson.result });
+					} else {
+						throw new Error(response.statusText, "code:", response.status);
+					}
+				} catch (error) {
+					console.log(error);
+				}
 			}
 		}
 	};
