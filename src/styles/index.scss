@@ -1,6 +1,9 @@
 /* 
     General Styles
 */
+body{
+    background-color: black;
+}
 .size{
     width: 18rem;
     
@@ -8,4 +11,17 @@
 button{
     height: 1rem;
     width: 5rem;
+    
+}
+button:hover{
+    background-color: gold;
+}
+
+#efect{
+  
+  animation: mymove 2s infinite;
+}
+
+@keyframes mymove {
+  50% {box-shadow: 10px 20px 30px yellow;}
 }

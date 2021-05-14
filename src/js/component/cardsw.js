@@ -7,7 +7,7 @@ const CardSW = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="size card text-center text-warning bg-dark border-warning m-3">
+		<div id="efect" className="size card text-center text-warning bg-dark border-warning m-3">
 			<img
 				className="card-img-top"
 				src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
