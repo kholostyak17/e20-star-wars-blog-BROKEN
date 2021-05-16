@@ -11,38 +11,40 @@ export const PeopleDetails = () => {
 	useEffect(() => {
 		actions.getPeopleDetails(params.id);
 	}, []);
+
 	useEffect(
 		() => {
 			if (store.peopleDetails.result != undefined) {
 				setPeopleDetails(
-					<ul>
-						<li>nombre: {store.peopleDetails.result.properties.name}</li>
-						<li>hola</li>
-						<li>caracteristica</li>
-						<li>caracteristica</li>
-						<li>caracteristica</li>
-						<li>joder</li>
-						<li>caracteristica</li>
-					</ul>
+					<>
+						<h2>{store.peopleDetails.result.properties.name}</h2>
+						<ul>
+							<li>Gender ⇨ {store.peopleDetails.result.properties.gender}</li>
+							<li>Birth Year ⇨ {store.peopleDetails.result.properties.birth_year}</li>
+							<li>Height ⇨ {store.peopleDetails.result.properties.height} cm</li>
+							<li>Mass ⇨ {store.peopleDetails.result.properties.mass} kg</li>
+							<li>Skin color ⇨ {store.peopleDetails.result.properties.skin_color}</li>
+							<li>Eye color ⇨ {store.peopleDetails.result.properties.eye_color}</li>
+							<li>Hair color ⇨ {store.peopleDetails.result.properties.hair_color}</li>
+						</ul>
+						<p>Description ⇨ {store.peopleDetails.result.description}</p>
+					</>
 				);
 			}
 		},
 		[store.peopleDetails]
 	);
 
-	/* const [detailsList, setDetailsList] = useState([]);
-    setDetailsList(.map((elem,index)=>{
-        <li></li>
-    }))
-    */
 	return (
-		<div className="container row">
-			<div className="col-8">
-				<img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" />
-			</div>
-			<div className="col-4">
-				<h2>Lagarto</h2>
-				{peopleDetails}
+		<div className="container">
+			<div className="row">
+				<div className="col-6">
+					<img
+						className="detailsPhoto"
+						src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+					/>
+				</div>
+				<div className="col-6">{peopleDetails}</div>
 			</div>
 		</div>
 	);
