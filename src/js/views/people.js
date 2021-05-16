@@ -14,7 +14,16 @@ export const People = () => {
 			if (store.people.results != undefined) {
 				setPeopleCards(
 					store.people.results.map((elem, index) => {
-						return <Card key={index.toString()} title={elem.name} uid={elem.uid} type="people" />;
+						return (
+							<Card
+								key={index.toString()}
+								title={elem.name}
+								uid={elem.uid}
+								type="people"
+								description="A person within the Star Wars universe"
+								image="https://www.toplessrobot.com/wp-content/uploads/2008/10/Episode_4_Luke_Skywalker_1.jpg"
+							/>
+						);
 					})
 				);
 			}

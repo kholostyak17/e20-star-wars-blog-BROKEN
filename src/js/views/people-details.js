@@ -26,8 +26,8 @@ export const PeopleDetails = () => {
 							<li>Skin color ⇨ {store.peopleDetails.result.properties.skin_color}</li>
 							<li>Eye color ⇨ {store.peopleDetails.result.properties.eye_color}</li>
 							<li>Hair color ⇨ {store.peopleDetails.result.properties.hair_color}</li>
+							<li>Description ⇨ {store.peopleDetails.result.description}</li>
 						</ul>
-						<p>Description ⇨ {store.peopleDetails.result.description}</p>
 					</>
 				);
 			}
@@ -41,7 +41,7 @@ export const PeopleDetails = () => {
 				<div className="col-6">
 					<img
 						className="detailsPhoto"
-						src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+						src="https://play-lh.googleusercontent.com/proxy/cUAjPVJwQhMnagGUuZUpTauv4D3Qj7kMe5TLl4mbWyOaF9YzBYmqqbL-e8J3Xj6YU2NJhQJghCNXWLPSzR-GkWpbYQA4Hy6WiIAprIYkbZWBpA=w720-h405-rw"
 					/>
 				</div>
 				<div className="col-6">{peopleDetails}</div>
