@@ -1,7 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			people: {}
+			people: {},
+			peopleDetails: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -46,6 +47,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(function(responseAsJson) {
 						setStore({ people: responseAsJson });
+					});
+			},
+			getPeopleDetails: uid => {
+				fetch("https://www.swapi.tech/api/people/".concat(uid), { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson, "joder");
+						setStore({ peopleDetails: responseAsJson });
 					});
 			}
 		}
