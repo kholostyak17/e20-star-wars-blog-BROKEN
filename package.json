@@ -78,9 +78,15 @@
 	},
 	"dependencies": {
 		"@material-ui/core": "^4.11.4",
+<<<<<<< HEAD
 		"bootstrap": "^4.3.1",
+=======
+		"@material-ui/styles": "^4.11.4",
+		"bootstrap": "^4.6.0",
+>>>>>>> c7f8b9b35e4d37d4b8ae5ece760244163c2bbb7f
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
+		"react-bootstrap": "^1.6.0",
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^5.2.0"
