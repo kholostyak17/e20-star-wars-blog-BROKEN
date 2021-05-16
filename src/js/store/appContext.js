@@ -21,10 +21,7 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getPeople();
-<<<<<<< HEAD
 			state.actions.getSpecies();
-=======
->>>>>>> c7f8b9b35e4d37d4b8ae5ece760244163c2bbb7f
 			//console.log(state.store.people);
 			/**
 			 * EDIT THIS!

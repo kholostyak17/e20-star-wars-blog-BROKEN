@@ -5,20 +5,10 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { People } from "./views/people";
 import { PeopleDetails } from "./views/people-details";
-<<<<<<< HEAD
 
 import { Species } from "./views/species";
 import { SpeciesDetails } from "./views/species-details";
 
-=======
-/*import { Planets } from "./views/planets";
-import { PlanetsDetails } from "./views/planets-details";
-import { Species } from "./views/species";
-import { SpeciesDetails } from "./views/species-details"; */
-
-//import { Demo } from "./views/0demo";
-//import { Single } from "./views/0single";
->>>>>>> c7f8b9b35e4d37d4b8ae5ece760244163c2bbb7f
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -44,7 +34,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/people">
 							<People />
-<<<<<<< HEAD
 						</Route>
 						<Route exact path="/people/:id">
 							<PeopleDetails />
@@ -54,11 +43,6 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/species/:id">
 							<SpeciesDetails />
-=======
-						</Route>
-						<Route exact path="/people/:id">
-							<PeopleDetails />
->>>>>>> c7f8b9b35e4d37d4b8ae5ece760244163c2bbb7f
 						</Route>
 						<Route>
 							<h1>sorry, not found :(</h1>
