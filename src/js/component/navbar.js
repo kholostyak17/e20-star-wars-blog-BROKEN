@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-dark mb-3">
 			<Link to="/home">
-				<span className="navbar-brand mb-0 h1">STAR WARS BLOG</span>
+				<span className="navbar-brand mb-0 h1 text-warning">STAR WARS BLOG</span>
 			</Link>
-			<div className="ml-auto">
-				<Link to="/people">
-					<button className="btn btn-warning">People</button>
-				</Link>
-			</div>
+			<Link to="/people">
+				<button className="btn btn-warning">People</button>
+			</Link>
+			<Link to="/">
+				<button className="btn btn-warning">Planets</button>
+			</Link>
+			<Link to="/">
+				<button className="btn btn-warning">Species</button>
+			</Link>
 		</nav>
 	);
 };
