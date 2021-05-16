@@ -1,29 +1,14 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext.js";
-import Card from "../component/card.js";
+import React from "react";
 import "../../styles/home.scss";
-import { element } from "prop-types";
 
-export const Home = () => {
-	const { store, actions } = useContext(Context);
-	const [speciesList, setSpeciesList] = useState([]);
-
-	useEffect(
-		() => {
-			if (store.species.results != undefined) {
-				setSpeciesList(
-					store.species.results.map((species, index) => {
-						return <Card key={index.toString()} name={species.name} url={species.url} id={species.uid} />;
-					})
-				);
-			}
-		},
-		[store.species]
-	);
-	return (
-		<Fragment>
-			<h1>¡Que onda?</h1>
-			{speciesList}
-		</Fragment>
-	);
-};
+export const Home = () => (
+	<div className="text-center mt-5">
+		<img
+			className="homeImage"
+			src="https://db-api.elestimulo.com/app/uploads/2016/01/Star-Wars-Logo1-1100x572.jpg"
+		/>
+		<a href="#" className="btn btn-warning">
+			If you see this yellow button, the power of jedi is working
+		</a>
+	</div>
+);

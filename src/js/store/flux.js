@@ -1,10 +1,37 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			species: [],
-			detailSpecies: {}
+			people: {},
+			peopleDetails: {},
+			species: {},
+			speciesDetails: {}
 		},
 		actions: {
+			getPeople: () => {
+				fetch("https://www.swapi.tech/api/people/", { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						setStore({ people: responseAsJson });
+					});
+			},
+			getPeopleDetails: uid => {
+				fetch("https://www.swapi.tech/api/people/".concat(uid), { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson, "joder");
+						setStore({ peopleDetails: responseAsJson });
+					});
+			},
 			getSpecies: async () => {
 				try {
 					let response = await fetch("https://www.swapi.tech/api/species/");
@@ -19,21 +46,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-			getDetails: async url => {
-				console.log("estoy en flux");
-				try {
-					let response = await fetch(url);
-
-					if (response.ok) {
-						let responseAsJson = await response.json();
-						console.log(responseAsJson);
-						setStore({ detailSpecies: responseAsJson.result });
-					} else {
-						throw new Error(response.statusText, "code:", response.status);
-					}
-				} catch (error) {
-					console.log(error);
-				}
+			getSpeciesDetails: uid => {
+				fetch("https://www.swapi.tech/api/species/".concat(uid), { method: "GET" })
+					.then(function(response) {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
+					.then(function(responseAsJson) {
+						console.log(responseAsJson, "joder");
+						setStore({ speciesDetails: responseAsJson });
+					});
 			}
 		}
 	};
