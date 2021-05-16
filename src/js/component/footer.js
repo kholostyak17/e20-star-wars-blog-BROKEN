@@ -3,7 +3,12 @@ import React, { Component } from "react";
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
 		<p>
-			Made with <i className="fa fa-heart text-danger" /> by Iván Jaén, Alberto Corchero y Sergio Carrascal
+			Made with{" "}
+			<img
+				className="footerIcon"
+				src="https://www.clipartmax.com/png/middle/6-65135_darth-vader-icon-star-wars-pinterest-star-darth-vader-icon.png"
+			/>{" "}
+			by Iván Jaén, Alberto Corchero y Sergio Carrascal
 		</p>
 	</footer>
 );
