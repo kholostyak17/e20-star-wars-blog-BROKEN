@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Card = props => {
+	const link = "/".concat(props.type, "/", props.uid);
 	return (
 		<div className="size card text-center text-warning bg-dark border-warning m-3">
 			<img
@@ -14,9 +15,9 @@ const Card = props => {
 				<h5 className="card-title">{props.title}</h5>
 				<p className="card-text">
 					Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-					continents except Antarctica
+					continents except Antarctica {props.uid}
 				</p>
-				<Link to="/people">
+				<Link to={link}>
 					<a href="#" className="btn btn-warning font-weight-bold text-dark">
 						Learn More
 					</a>
@@ -30,5 +31,6 @@ export default Card;
 
 Card.propTypes = {
 	title: PropTypes.string,
-	url: PropTypes.string
+	uid: PropTypes.string,
+	type: PropTypes.string
 };
